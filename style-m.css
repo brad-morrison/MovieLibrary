@@ -1,20 +1,57 @@
+:root {
+    --tile-width: 210px;
+    --tile-height: 300px;
+}
+
+header {
+    background-color: rgb(34, 34, 34);
+    height: 80px;
+    width: 100%;
+    margin-bottom: 100px;
+    position: relative;
+}
+
+footer {
+    background-color: rgb(34, 34, 34);
+    min-height: 150px;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.footer-text {
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.header-title {
+    height:100%;
+    padding-top: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
 .container {
             
     display: grid;
-    grid-template-columns: repeat(5, 210px);
-    grid-template-rows: repeat(10, 300px);
+    grid-template-columns: repeat(5, var(--tile-width));
+    grid-template-rows: repeat(3, var(--tile-height));
     grid-gap: 15px;
     justify-content: center;
+    justify-items: center;
 }
 
 .item:hover .overlay{
-    opacity: 0.7;
+    opacity: 0.8;
     
 }
 
 .item:hover{
-    padding: 0;
-    
+    padding: 0px;
 }
 
 .item {
@@ -31,11 +68,18 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     line-height: 1.1;
+    text-shadow: 2px 2px 5px rgb(29, 29, 29);
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin:0;
 }
 
 .text-box {
     position: absolute;
-    bottom: 25%;
+    bottom: 10%;
     padding: 10px 20px;
 }
 
@@ -49,7 +93,8 @@
     height:100%;
     opacity: 0;
     transition: .2s ease;
-    background-color: rgb(0, 0, 0);
+    /*background-color: rgb(0, 0, 0);*/
+    background-image: linear-gradient(rgb(80, 80, 80), black);
 }
 
 img {
@@ -60,26 +105,26 @@ img {
 }
 
 /* resize for mobile*/
-@media only screen and (max-width: 1086px) {
+@media only screen and (max-width: 1134px) {
     .container{
-        grid-template-columns: repeat(4, 210px);
+        grid-template-columns: repeat(4, var(--tile-width));
     }
 }
 
-@media only screen and (max-width: 870px) {
+@media only screen and (max-width: 906px) {
     .container{
-        grid-template-columns: repeat(3, 210px);
+        grid-template-columns: repeat(3, var(--tile-width));
     }
 }
 
-@media only screen and (max-width: 658px) {
+@media only screen and (max-width: 680px) {
     .container{
-        grid-template-columns: repeat(2, 210px);
+        grid-template-columns: repeat(2, var(--tile-width));
     }
 }
 
-@media only screen and (max-width: 440px) {
+@media only screen and (max-width: 454px) {
     .container{
-        grid-template-columns: repeat(1, 210px);
+        grid-template-columns: repeat(1, var(--tile-width));
     }
 }

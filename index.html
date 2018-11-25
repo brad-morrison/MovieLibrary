@@ -1,60 +1,75 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
 <html>
 <head>
-	<title>Movies</title>
-	<link rel = "stylesheet" href = "style.css" type = "text/css">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <Style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(5, 200px);
+            grid-template-rows: repeat(10, 300px);
+            grid-gap: 15px;
+            justify-content: center;
+        }
+
+        .item {
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+        }
+
+        /* resize for mobile*/
+        @media only screen and (max-width: 1086px) {
+            .container{
+                grid-template-columns: repeat(4, 200px);
+            }
+        }
+
+        @media only screen and (max-width: 870px) {
+            .container{
+                grid-template-columns: repeat(3, 200px);
+            }
+        }
+
+        @media only screen and (max-width: 658px) {
+            .container{
+                grid-template-columns: repeat(2, 200px);
+            }
+        }
+
+        @media only screen and (max-width: 440px) {
+            .container{
+                grid-template-columns: repeat(1, 200px);
+            }
+        }
+        
+    </Style>
 </head>
 <body>
-	<div class="page" style="max-width: 1100px">
-		<div class="grid" style="width: 100%;">
-			<div class="row"
-				<!--BOX-->
-				<div class="col-size">
-					<div class="box">
-						<div class="inner-box">
-							dd
-						</div>
-					</div>
-				</div>
-				<!--BOX END-->
-				<!--BOX-->
-				<div class="col-size">
-					<div class="box">
-						<div class="inner-box">
-							dd
-						</div>
-					</div>
-				</div>
-				<!--BOX END-->
-				<!--BOX-->
-				<div class="col-size">
-					<div class="box">
-						<div class="inner-box">
-							dd
-						</div>
-					</div>
-				</div>
-				<!--BOX END-->
-				<!--BOX-->
-				<div class="col-size">
-					<div class="box">
-						<div class="inner-box">
-							dd
-						</div>
-					</div>
-				</div>
-				<!--BOX END-->
-				<!--BOX-->
-				<div class="col-size">
-					<div class="box">
-						<div class="inner-box">
-							dd
-						</div>
-					</div>
-				</div>
-				<!--BOX END-->
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="item item-1">1</div>
+        <div class="item item-2">2</div>
+        <div class="item item-3">3</div>
+        <div class="item item-4">4</div>
+        <div class="item item-5">5</div>
+        <div class="item item-6">6</div>
+        <div class="item item-1">7</div>
+        <div class="item item-2">8</div>
+        <div class="item item-3">9</div>
+        <div class="item item-4">10</div>
+        <div class="item item-5"></div>
+        <div class="item item-6"></div>
+        <div class="item item-1"></div>
+        <div class="item item-2"></div>
+        <div class="item item-3"></div>
+        <div class="item item-4"></div>
+        <div class="item item-5"></div>
+        <div class="item item-6"></div>
+        <div class="item item-1"></div>
+        <div class="item item-2"></div>
+        <div class="item item-3"></div>
+        <div class="item item-4"></div>
+        <div class="item item-5"></div>
+        <div class="item item-6"></div>
+    </div>
 </body>
 </html>

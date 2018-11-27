@@ -43,7 +43,7 @@
             newItem.innerHTML = 
 
             '<img src="" id="poster">\
-            <div class="overlay" id="overlay">\
+            <div class="overlay" id="overlay" onclick="write()">\
                 <div class="text-box" id="textbox">\
                     <div class="text" id="title">aaa</div>\
                 </div>\
@@ -68,7 +68,7 @@
         function requestPoster(title, action, poster)
         {
            // parse url from user input
-            var url = "http://www.omdbapi.com/?t=" + title;
+            var url = "https://www.omdbapi.com/?t=" + title;
             // add API key
             url = url + "&apikey=9f42f92d";
 
@@ -80,7 +80,7 @@
         {
             // parse url from user input
             var userInput = document.getElementById("userInputBox").value;
-            var url = "http://www.omdbapi.com/?t=" + userInput;
+            var url = "https://www.omdbapi.com/?t=" + userInput;
             // add API key
             url = url + "&apikey=9f42f92d";
 
@@ -101,4 +101,9 @@
                     item.src = data.Poster;
                     break;
             }
+        }
+
+        function write()
+        {
+            console.log("A");
         }

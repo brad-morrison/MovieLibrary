@@ -102,12 +102,3 @@
                     break;
             }
         }
-        
-        /* function setValues(data, action)
-        {
-            switch statement (action)
-
-              if movie
-
-                  
-        }*/

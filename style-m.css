@@ -35,8 +35,7 @@ body {
     margin: 0;
 }
 
-.container {
-            
+.container {     
     display: grid;
     grid-template-columns: repeat(5, var(--tile-width));
     grid-template-rows: repeat(3, var(--tile-height));

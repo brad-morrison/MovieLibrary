@@ -1,0 +1,110 @@
+<!<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta charset="utf-8" />
+    <title>javascript</title>
+    <!--script-->
+    <script>
+
+        function getXML()
+        {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function()
+            {
+                if (this.readyState == 4 && this.status == 200)
+                {
+                    createArrayFromXML(this);
+                }
+            }
+            xhttp.open("GET", "movie-list.xml", true);
+            xhttp.send();
+        }
+
+        function createArrayFromXML(xml)
+        {
+            var x, i, xmlDoc, txt;
+            var movies = [];
+
+            xmlDoc = xml.responseXML;
+            txt = "";
+            x = xmlDoc.getElementsByTagName("title");
+            
+            for (i=0;i<x.length;i++)
+            {
+                // add to array
+                movies.push(x[i].innerHTML);
+            }
+        }
+
+        function addBoxToHTML()
+        {
+            var item = document.createElement("div");
+
+            item.className = "item";
+
+            item.innerHTML = 
+            
+                '<div class="item">\
+                    <img src="">\
+                    <div class="overlay">\
+                        <div class="text-box">\
+                            <div class="text"></div>\
+                        </div>\
+                    </div>\
+                </div>'
+
+        }
+
+        function createArray(title)
+        {
+            var movies = [];
+            movies.push(title);
+        }
+        
+        function requestMovie()
+        {
+            var movie = new Object;
+            var url;
+            
+            // parse url from user input
+            var userInput = document.getElementById("userInputBox").value;
+            var url = "http://www.omdbapi.com/?t=" + userInput;
+            // add API key
+            url = url + "&apikey=9f42f92d";
+
+            // request data [syntax] = $.getJSON(url, data, success)
+            $.getJSON(url, function success(data){ createMovieObj(data); });
+        
+        }
+
+        function createMovieObj(movie)
+        {
+            document.getElementById("title").innerHTML = movie.Title;
+            document.getElementById("actors").innerHTML = movie.Actors;
+            document.getElementById("year").innerHTML = movie.Year;
+            document.getElementById("poster").src = movie.Poster;
+        }
+        
+    
+    </script>
+    
+
+</head>
+<body>
+    <h2>Search Movie:</h2>
+    <p>Title: <input id="userInputBox"></p>
+
+    <button onclick="requestMovie()">Search</button>
+    <button onclick="getXML()">XML</button>
+
+    <p id="title"></p>
+    <p id="actors"></p>
+    <p id="year"></p>
+    <img src="" id="poster">
+
+    <p id="xml"></p>
+
+
+</body>
+</html>

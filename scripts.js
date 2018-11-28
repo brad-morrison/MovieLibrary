@@ -1,3 +1,4 @@
+        window.onload = 
         function getXML()
         {
             var xhttp = new XMLHttpRequest();
@@ -16,6 +17,7 @@
         {
             var x, i, xmlDoc, txt;
             var movies = [];
+            var posterLinks = [];
 
             xmlDoc = xml.responseXML;
             txt = "";
@@ -25,6 +27,7 @@
             {
                 // add to array
                 movies.push(x[i].innerHTML);
+                console.log(x);
                 // add to list
                 addBoxToHTML(i+1, movies);
             }
@@ -43,7 +46,7 @@
             newItem.innerHTML = 
 
             '<img src="" id="poster">\
-            <div class="overlay" id="overlay" onclick="write()">\
+            <div class="overlay" id="overlay" style="cursor: pointer" onclick="write()">\
                 <div class="text-box" id="textbox">\
                     <div class="text" id="title">aaa</div>\
                 </div>\
@@ -68,7 +71,7 @@
         function requestPoster(title, action, poster)
         {
            // parse url from user input
-            var url = "https://www.omdbapi.com/?t=" + title;
+            var url = "http://www.omdbapi.com/?t=" + title;
             // add API key
             url = url + "&apikey=9f42f92d";
 
@@ -80,7 +83,7 @@
         {
             // parse url from user input
             var userInput = document.getElementById("userInputBox").value;
-            var url = "https://www.omdbapi.com/?t=" + userInput;
+            var url = "http://www.omdbapi.com/?t=" + userInput;
             // add API key
             url = url + "&apikey=9f42f92d";
 
@@ -99,11 +102,32 @@
                 
                 case "poster":
                     item.src = data.Poster;
+                    document.getElementById("poster-text").innerHTML = data.Poster;
                     break;
             }
         }
 
-        function write()
+        function write(data)
         {
-            console.log("A");
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                myFunction(this, data);
+            }
+            };
+            xhttp.open("GET", "movie-list.xml", true);
+            xhttp.send();
+        }
+
+        function myFunction(xml, data)
+        {
+            var x, txt, xmlDoc;
+            xmlDoc = xml.responseXML;
+            x = xmlDoc.getElementsByTagName("movie")[0].childNodes[16];
+            console.log(x.nodeValue);
+            txt = x.nodeValue + "<br>";
+            x.insertData(0, "test insert data");
+            txt += x.nodeValue;
+            console.log(x);
+            
         }

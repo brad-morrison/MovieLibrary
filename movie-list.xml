@@ -242,15 +242,15 @@
 	</movie>
 	<movie>
 		<title>Solaris</title>
-		<year>2002</year>
-		<rated>PG-13</rated>
-		<genre>Drama, Mystery, Romance, Sci-Fi</genre>
-		<director>Steven Soderbergh</director>
-		<actors>George Clooney, Natascha McElhone, Viola Davis, Jeremy Davies</actors>
-		<plot>A troubled psychologist is sent to investigate the crew of an isolated research station orbiting a bizarre planet.</plot>
-		<poster>https://m.media-amazon.com/images/M/MV5BNzlkNGE0MmMtMzU4YS00ZDU1LWFhMTktZDRjMGU5MjI1MzRlXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SX300.jpg</poster>
-		<rating>6.2</rating>
-		<imdbID>tt0307479</imdbID>
+		<year>1971</year>
+		<rated>A</rated>
+		<genre>Drama, Mystery, Sci-Fi</genre>
+		<director>Andrei Tarkovsky</director>
+		<actors>Natalya Bondarchuk, Donatas Banionis, Juri Jarvet</actors>
+		<plot>A psychologist is sent to a station orbiting a distant planet in order to discover what has caused the crew to go insane.</plot>
+		<poster>https://m.media-amazon.com/images/M/MV5BZmY4Yjc0OWQtZDRhMy00ODc2LWI2NGYtMWFlODYyN2VlNDQyXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UY268_CR4,0,182,268_AL_.jpg</poster>
+		<rating>8.1</rating>
+		<imdbID>tt0069293</imdbID>
 	</movie>
 	<movie>
 		<title>A Clockwork Orange</title>
@@ -1298,15 +1298,15 @@
 	</movie>
 	<movie>
 		<title>Miracle on 34th Street</title>
-		<year>1947</year>
-		<rated>NOT RATED</rated>
-		<genre>Comedy, Drama, Family</genre>
-		<director>George Seaton</director>
-		<actors>Maureen O'Hara, John Payne, Edmund Gwenn, Gene Lockhart</actors>
-		<plot>When a nice old man who claims to be Santa Claus is institutionalized as insane, a young lawyer decides to defend him by arguing in court that he is the real thing.</plot>
-		<poster>https://m.media-amazon.com/images/M/MV5BNjRkOGEwYTUtY2E5Yy00ODg4LTk2ZWItY2IyMzUxOGVhMTM1XkEyXkFqcGdeQXVyNDk0MDg4NDk@._V1_SX300.jpg</poster>
-		<rating>7.9</rating>
-		<imdbID>tt0039628</imdbID>
+		<year>1994</year>
+		<rated>U</rated>
+		<genre>Family, Fantasy</genre>
+		<director>Les Mayfield</director>
+		<actors>Richard Attenborough, Elizabeth Perkins, Dylan McDermott</actors>
+		<plot>A lawyer and a little girl must prove that a man claiming to be Santa Claus is the real thing.</plot>
+		<poster>https://m.media-amazon.com/images/M/MV5BZjk3M2UyN2YtNmQ1MS00MWI3LWEzNGMtYTRkM2E5MWNjOWJjL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg</poster>
+		<rating>6.5</rating>
+		<imdbID>tt0110527</imdbID>
 	</movie>
 	<movie>
 		<title>Pulp Fiction</title>
@@ -5113,16 +5113,16 @@
 		<imdbID>tt1131729</imdbID>
 	</movie>
 	<movie>
-		<title>Fast &amp; Furious 6</title>
-		<year>2013</year>
-		<rated>PG-13</rated>
+		<title>Fast &amp; Furious 4</title>
+		<year>2009</year>
+		<rated>15</rated>
 		<genre>Action, Crime, Thriller</genre>
 		<director>Justin Lin</director>
-		<actors>Vin Diesel, Paul Walker, Dwayne Johnson, Jordana Brewster</actors>
-		<plot>Hobbs has Dominic and Brian reassemble their crew to take down a team of mercenaries: Dominic unexpectedly gets convoluted also facing his presumed deceased girlfriend, Letty.</plot>
-		<poster>https://m.media-amazon.com/images/M/MV5BMTM3NTg2NDQzOF5BMl5BanBnXkFtZTcwNjc2NzQzOQ@@._V1_SX300.jpg</poster>
-		<rating>7.1</rating>
-		<imdbID>tt1905041</imdbID>
+		<actors>Vin Diesel, Paul Walker, Michelle Rodriguez</actors>
+		<plot>Brian O'Conner, back working for the FBI in Los Angeles, teams up with Dominic Toretto to bring down a heroin importer by infiltrating his operation.</plot>
+		<poster>https://www.lipstiq.com/wp-content/uploads/2013/12/fast-furious-poster-big.jpg</poster>
+		<rating>6.6</rating>
+		<imdbID>tt1013752</imdbID>
 	</movie>
 	<movie>
 		<title>The Hangover</title>

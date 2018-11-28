@@ -15,25 +15,55 @@
 
         function createArrayFromXML(xml)
         {
-            var x, i, xmlDoc, txt;
+            var xtitle, xyear, xrated, xgenre, xdirector, xactors, xplot, 
+            xposter, xrating, ximdbid, xmlDoc, txt;
+
             var movies = [];
-            var posterLinks = [];
+            var moviesTitle=[];
+            var moviesYear=[];
+            var moviesRated=[];
+            var moviesGenre=[];
+            var moviesDirector=[];
+            var moviesActors=[];
+            var moviesPlot=[];
+            var moviesPoster=[];
+            var moviesRating=[];
+            var moviesIMDBID=[];
 
             xmlDoc = xml.responseXML;
             txt = "";
-            x = xmlDoc.getElementsByTagName("title");
+            xtitle = xmlDoc.getElementsByTagName("title");
+            xyear = xmlDoc.getElementsByTagName("year");
+            xrated = xmlDoc.getElementsByTagName("rated");
+            xgenre = xmlDoc.getElementsByTagName("genre");
+            xdirector = xmlDoc.getElementsByTagName("director");
+            xactors = xmlDoc.getElementsByTagName("actors");
+            xplot = xmlDoc.getElementsByTagName("plot");
+            xposter = xmlDoc.getElementsByTagName("poster");
+            xrating = xmlDoc.getElementsByTagName("rating");
+            ximdbid = xmlDoc.getElementsByTagName("imdbID");
             
-            for (i=0;i<x.length;i++)
+            for (i=0;i<xtitle.length;i++)
             {
                 // add to array
-                movies.push(x[i].innerHTML);
-                console.log(x);
+                moviesTitle.push(xtitle[i].innerHTML);
+                moviesYear.push(xyear[i].innerHTML);
+                moviesRated.push(xrated[i].innerHTML);
+                moviesGenre.push(xgenre[i].innerHTML);
+                moviesDirector.push(xdirector[i].innerHTML);
+                moviesActors.push(xactors[i].innerHTML);
+                moviesPlot.push(xplot[i].innerHTML);
+                moviesPoster.push(xposter[i].innerHTML);
+                moviesRating.push(xrating[i].innerHTML);
+                moviesIMDBID.push(ximdbid[i].innerHTML);
                 // add to list
-                addBoxToHTML(i+1, movies);
+                addBoxToHTML(i+1, moviesTitle, moviesYear, moviesRated, moviesGenre, 
+                                moviesDirector, moviesActors, moviesPlot, moviesPoster, 
+                                moviesRating, moviesIMDBID);
             }
         }
 
-        function addBoxToHTML(counter, movies)
+        function addBoxToHTML(counter, title, year, rated, genre, director, actors, plot, posterURL, rating, imdbID)
         {
             // create skeleton item
             var container = document.getElementById("container");
@@ -62,9 +92,9 @@
             var text = textbox.childNodes[1];
             
             //set value
-            text.innerHTML = movies[counter-1];
-            //requestPoster(movies[counter-1], );
-            requestPoster(movies[counter-1], "poster", poster)
+            text.innerHTML = title[counter-1];
+            poster.src = posterURL[counter-1];
+            //requestPoster(movies[counter-1], "poster", poster)
 
         }
 

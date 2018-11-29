@@ -5,7 +5,7 @@
 
 header {
     background-color: rgb(34, 34, 34);
-    height: 80px;
+    height: 60px;
     width: 100%;
     margin-bottom: 100px;
     position: relative;
@@ -27,7 +27,7 @@ footer {
 
 .header-title {
     height:100%;
-    padding-top: 25px;
+    padding-top: 10px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -38,7 +38,7 @@ body {
 .container {     
     display: grid;
     grid-template-columns: repeat(5, var(--tile-width));
-    grid-template-rows: repeat(3, var(--tile-height));
+    grid-template-rows: repeat(126, var(--tile-height));
     grid-gap: 15px;
     justify-content: center;
     justify-items: center;
@@ -48,21 +48,24 @@ body {
 
 .item:hover .overlay{
     opacity: 0.8;
-    box-shadow: 0 12px 4px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 18px 4px 0 rgba(0,0,0,0.2),0px 20px 20px 0 rgba(0,0,0,0.19);
     
 }
 
 .item:hover{
-    padding: 0px;
+    margin: -6px;
 }
 
 .item {
     position: relative;
     background-color: #ffffff;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
     transition: .2s ease;
-    padding: 5px;
+    padding: 0px;
     transition: .2s ease;
+    border: 1px solid rgb(197, 197, 197);
+    margin: 2px;
+    transition: .0.5s ease;
 }
 
 .text {
@@ -72,6 +75,7 @@ body {
     text-align: center;
     line-height: 1.1;
     text-shadow: 2px 2px 5px rgb(29, 29, 29);
+    padding-right: 10px;
 }
 
 h1 {

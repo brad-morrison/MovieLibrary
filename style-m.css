@@ -10,6 +10,26 @@ header {
     position: relative;
 }
 
+.searchbox {
+    width: 100%;
+    text-align: center;
+    
+}
+
+button {
+    width: 50px;
+    height: 36px;
+    vertical-align: middle;
+}
+
+.search-field {
+    justify-items: center;
+    height: 30px;
+    width: auto;
+    min-width: 200px;
+    margin-top: 40px;
+}
+
 footer {
     background-color: rgb(34, 34, 34);
     min-height: 150px;
@@ -73,7 +93,7 @@ body {
     color: white;
     font-size: 35px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
+    text-align: left;
     line-height: 1.1;
     text-shadow: 2px 2px 5px rgb(29, 29, 29);
     padding-right: 10px;

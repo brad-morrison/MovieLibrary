@@ -19,19 +19,10 @@
             xposter, xrating, ximdbid, xmlDoc, txt;
 
             var movies = [];
-            var moviesTitle=[];
-            var moviesYear=[];
-            var moviesRated=[];
-            var moviesGenre=[];
-            var moviesDirector=[];
-            var moviesActors=[];
-            var moviesPlot=[];
-            var moviesPoster=[];
-            var moviesRating=[];
-            var moviesIMDBID=[];
-
+            
             xmlDoc = xml.responseXML;
             txt = "";
+
             xtitle = xmlDoc.getElementsByTagName("title");
             xyear = xmlDoc.getElementsByTagName("year");
             xrated = xmlDoc.getElementsByTagName("rated");
@@ -45,42 +36,40 @@
             
             for (i=0;i<xtitle.length;i++)
             {
+                var movie = new Object();
+
+                // set data
+                movie.title = xtitle[i].innerHTML;
+                movie.year = xyear[i].innerHTML;
+                movie.rated = xrated[i].innerHTML;
+                movie.genre = xgenre[i].innerHTML;
+                movie.director = xdirector[i].innerHTML;
+                movie.actors = xactors[i].innerHTML;
+                movie.plot = xplot[i].innerHTML;
+                movie.poster = xposter[i].innerHTML;
+                movie.rating = xrating[i].innerHTML;
+                movie.imdbID = ximdbid[i].innerHTML;
+                
                 // add to array
-                moviesTitle.push(xtitle[i].innerHTML);
-                moviesYear.push(xyear[i].innerHTML);
-                moviesRated.push(xrated[i].innerHTML);
-                moviesGenre.push(xgenre[i].innerHTML);
-                moviesDirector.push(xdirector[i].innerHTML);
-                moviesActors.push(xactors[i].innerHTML);
-                moviesPlot.push(xplot[i].innerHTML);
-                moviesPoster.push(xposter[i].innerHTML);
-                moviesRating.push(xrating[i].innerHTML);
-                moviesIMDBID.push(ximdbid[i].innerHTML);
-            }
+                movies.push(movie);
+                // sort by year descending
+                movies.sort(function(a,b){return a.year - b.year});
+                // sort by year ascending
+                //movies.sort(function(a,b){return b.year - a.year});
+            }   
 
             //reverse order so new films are at top
-            moviesTitle.reverse();
-            moviesYear.reverse();
-            moviesRated.reverse();
-            moviesGenre.reverse();
-            moviesDirector.reverse();
-            moviesActors.reverse();
-            moviesPlot.reverse();
-            moviesPoster.reverse();
-            moviesRating.reverse();
-            moviesIMDBID.reverse();
-            
-            for (i=0;i<moviesTitle.length;i++)
+            movies.reverse();
+
+            for (i=0;i<movies.length;i++)
             {
-            // add to list
-            addBoxToHTML(i+1, moviesTitle, moviesYear, moviesRated, moviesGenre, 
-                moviesDirector, moviesActors, moviesPlot, moviesPoster, 
-                moviesRating, moviesIMDBID);
+                // add to list
+                addBoxToHTML(i, movies[i]);
             }
         }
 
-        function addBoxToHTML(counter, title, year, rated, genre, director, actors, plot, posterURL, rating, imdbID)
-        {
+        function addBoxToHTML(counter, movie)
+        {;
             // create skeleton item
             var container = document.getElementById("container");
             var lastItem = document.getElementById("item-" + counter-1);
@@ -109,34 +98,34 @@
             var text = textbox.childNodes[1];
             
             //set value
-            text.innerHTML = title[counter-1];
+            text.innerHTML = movie.title;
             
             
             if (imageFromLocal == false)
             {
                 // set to retrieve from URL
-                poster.src = posterURL[counter-1];
+                poster.src = movie.poster;
                 console.log("images retrieved from URL")
             }
             else
             {
                 // set to retrieve from local files
-                var str = posterURL[counter-1];
+                var str = movie.poster;
                 str = str.replace("https://m.media-amazon.com/images/M/", "");
                 poster.src = "posters/" + str;
+                // manual setting
+                if (movie.title == "The Counselor")
+                    poster.src = "posters/The Counselor.jpg";
+                if (movie.title == "Brand: A Second Coming")
+                    poster.src = "posters/1.jpg";
+                if (movie.title == "Fast &amp; Furious 4")
+                    poster.src = "posters/Fast4.jpg";
+                if (movie.title == "The Crucible")
+                    poster.src = "posters/The Crucible.jpg";
+                if (movie.title == "Solaris")
+                    poster.src = "posters/Solaris.jpg";
                 console.log("images retrieved from files")
             }
-        }
-
-        function requestPoster(title, action, poster)
-        {
-           // parse url from user input
-            var url = "http://www.omdbapi.com/?t=" + title;
-            // add API key
-            url = url + "&apikey=9f42f92d";
-
-            // request data [syntax] = $.getJSON(url, data, success)
-            $.getJSON(url, function success(data){ setValues(data, action, poster) });
         }
 
         function requestMovie()
@@ -149,45 +138,16 @@
 
             // request data [syntax] = $.getJSON(url, data, success)
             $.getJSON(url, function success(data){ createMovieObj(data); });
-        
         }
 
-        function setValues(data, action, item)
+        // for tomorrow iterate through each movie and test against the search then repopulate grid.
+        function searchMovies()
         {
-            switch(action)
-            {
-                case "title":
+            var txt;
+            var containsTrue;
 
-                    break;
-                
-                case "poster":
-                    item.src = data.Poster;
-                    document.getElementById("poster-text").innerHTML = data.Poster;
-                    break;
-            }
-        }
+            txt = document.getElementById("search").value;
+            console.log(txt);
 
-        function write(data)
-        {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                myFunction(this, data);
-            }
-            };
-            xhttp.open("GET", "movie-list.xml", true);
-            xhttp.send();
-        }
-
-        function myFunction(xml, data)
-        {
-            var x, txt, xmlDoc;
-            xmlDoc = xml.responseXML;
-            x = xmlDoc.getElementsByTagName("movie")[0].childNodes[16];
-            console.log(x.nodeValue);
-            txt = x.nodeValue + "<br>";
-            x.insertData(0, "test insert data");
-            txt += x.nodeValue;
-            console.log(x);
-            
+            containsTrue = txt.includes()
         }

@@ -40,6 +40,7 @@ body {
     grid-template-columns: repeat(5, var(--tile-width));
     grid-template-rows: repeat(126, var(--tile-height));
     grid-gap: 15px;
+    transition: 1s ease;
     justify-content: center;
     justify-items: center;
     margin-bottom: 50px;
@@ -58,6 +59,7 @@ body {
 
 .item {
     position: relative;
+    transition: 1s ease;
     background-color: #ffffff;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
     transition: .2s ease;
@@ -115,23 +117,29 @@ img {
 @media only screen and (max-width: 1134px) {
     .container{
         grid-template-columns: repeat(4, var(--tile-width));
+        justify-content: center;
     }
 }
 
 @media only screen and (max-width: 906px) {
     .container{
         grid-template-columns: repeat(3, var(--tile-width));
+        justify-content: center;
     }
 }
 
 @media only screen and (max-width: 680px) {
     .container{
         grid-template-columns: repeat(2, var(--tile-width));
+        justify-content: center;
     }
 }
 
 @media only screen and (max-width: 454px) {
     .container{
         grid-template-columns: repeat(1, var(--tile-width));
+        justify-content: left;
+        margin-left: 30px;
+        grid-gap: 20px;
     }
 }

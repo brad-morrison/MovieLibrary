@@ -56,10 +56,26 @@
                 moviesPoster.push(xposter[i].innerHTML);
                 moviesRating.push(xrating[i].innerHTML);
                 moviesIMDBID.push(ximdbid[i].innerHTML);
-                // add to list
-                addBoxToHTML(i+1, moviesTitle, moviesYear, moviesRated, moviesGenre, 
-                                moviesDirector, moviesActors, moviesPlot, moviesPoster, 
-                                moviesRating, moviesIMDBID);
+            }
+
+            //reverse order so new films are at top
+            moviesTitle.reverse();
+            moviesYear.reverse();
+            moviesRated.reverse();
+            moviesGenre.reverse();
+            moviesDirector.reverse();
+            moviesActors.reverse();
+            moviesPlot.reverse();
+            moviesPoster.reverse();
+            moviesRating.reverse();
+            moviesIMDBID.reverse();
+            
+            for (i=0;i<moviesTitle.length;i++)
+            {
+            // add to list
+            addBoxToHTML(i+1, moviesTitle, moviesYear, moviesRated, moviesGenre, 
+                moviesDirector, moviesActors, moviesPlot, moviesPoster, 
+                moviesRating, moviesIMDBID);
             }
         }
 
@@ -68,6 +84,7 @@
             // create skeleton item
             var container = document.getElementById("container");
             var lastItem = document.getElementById("item-" + counter-1);
+            var imageFromLocal = true;
             
             var newItem = document.createElement("div");
 
@@ -93,9 +110,22 @@
             
             //set value
             text.innerHTML = title[counter-1];
-            poster.src = posterURL[counter-1];
-            //requestPoster(movies[counter-1], "poster", poster)
-
+            
+            
+            if (imageFromLocal == false)
+            {
+                // set to retrieve from URL
+                poster.src = posterURL[counter-1];
+                console.log("images retrieved from URL")
+            }
+            else
+            {
+                // set to retrieve from local files
+                var str = posterURL[counter-1];
+                str = str.replace("https://m.media-amazon.com/images/M/", "");
+                poster.src = "posters/" + str;
+                console.log("images retrieved from files")
+            }
         }
 
         function requestPoster(title, action, poster)

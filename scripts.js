@@ -1,3 +1,5 @@
+        var global = {};
+        
         window.onload = 
         function getXML()
         {
@@ -11,6 +13,27 @@
             }
             xhttp.open("GET", "movie-list.xml", true);
             xhttp.send();
+
+            itemClicks();
+        }
+
+        function itemClicks()
+        {
+            var items = [];
+            var item;
+            
+            items = document.getElementsByClassName("item");
+            console.log(items.length);
+            /*
+            for (i=0;i<elem.length;i++)
+            {
+                elem[i].addEventListener("click", onClickItem);
+            }*/
+        }
+
+        function onClickItem()
+        {
+            console.log("hi");
         }
 
         function createArrayFromXML(xml)
@@ -66,6 +89,9 @@
                 // add to list
                 addBoxToHTML(i, movies[i]);
             }
+
+            //add array to global for search
+            global.movies = movies;
         }
 
         function addBoxToHTML(counter, movie)
@@ -78,11 +104,12 @@
             var newItem = document.createElement("div");
 
             newItem.className = "item";
+            newItem.attr
             newItem.id = "item-" + counter;
             newItem.innerHTML = 
 
             '<img src="" id="poster">\
-            <div class="overlay" id="overlay" style="cursor: pointer" onclick="write()">\
+            <div class="overlay" id="overlay" style="cursor: pointer">\
                 <div class="text-box" id="textbox">\
                     <div class="text" id="title">aaa</div>\
                 </div>\
@@ -96,7 +123,7 @@
             var overlay = item.childNodes[2];
             var textbox = overlay.childNodes[1];
             var text = textbox.childNodes[1];
-            
+
             //set value
             text.innerHTML = movie.title;
             
@@ -105,7 +132,6 @@
             {
                 // set to retrieve from URL
                 poster.src = movie.poster;
-                console.log("images retrieved from URL")
             }
             else
             {
@@ -124,7 +150,6 @@
                     poster.src = "posters/The Crucible.jpg";
                 if (movie.title == "Solaris")
                     poster.src = "posters/Solaris.jpg";
-                console.log("images retrieved from files")
             }
         }
 
@@ -140,14 +165,164 @@
             $.getJSON(url, function success(data){ createMovieObj(data); });
         }
 
-        // for tomorrow iterate through each movie and test against the search then repopulate grid.
-        function searchMovies()
+        function search()
         {
             var txt;
-            var containsTrue;
 
             txt = document.getElementById("search").value;
-            console.log(txt);
 
-            containsTrue = txt.includes()
+            if (txt.includes("year:"))
+            {
+                searchMoviesByYear(txt);
+            }
+            else if (txt.includes("genre:"))
+            {
+                searchMoviesByGenre(txt);
+            }
+            else if (txt.includes("director:"))
+            {
+                searchMoviesByDirector(txt);
+            }
+            else if (txt.includes("actor:"))
+            {
+                searchMoviesByActor(txt);
+            }
+            else 
+            {
+                searchMoviesByTitle(txt);
+            }
+        }
+
+
+        function searchMoviesByTitle(txt)
+        {
+            var moviesFound = [];
+            var movieString, movieStringLower;
+            var containsTrue, containsTrueLower;
+
+            //search
+            for (i=0;i<global.movies.length;i++)
+            {
+                movieString = global.movies[i].title;
+                movieStringLower = movieString.toLowerCase();
+                containsTrue = movieString.includes(txt);
+                containsTrueLower = movieStringLower.includes(txt);
+
+                if (containsTrue || containsTrueLower)
+                {
+                    moviesFound.push(global.movies[i]);
+                }
+            }
+            renderSearchItems(moviesFound);
+        }
+
+        function searchMoviesByGenre(txt)
+        {
+            var moviesFound = [];
+            var genreString, genreStringLower;
+            var containsTrue, containsTrueLower;
+
+            txt = txt.replace("genre: ", "");
+
+            //search
+            for (i=0;i<global.movies.length;i++)
+            {
+                genreString = global.movies[i].genre;
+                genreStringLower = genreString.toLowerCase();
+
+                containsTrue = genreString.includes(txt);
+                containsTrueLower = genreStringLower.includes(txt);
+
+                if (containsTrue || containsTrueLower)
+                {
+                    moviesFound.push(global.movies[i]);
+                }
+            }
+            renderSearchItems(moviesFound);
+        }
+
+        function searchMoviesByDirector(txt)
+        {
+            var moviesFound = [];
+            var directorString, directorStringLower;
+            var containsTrue, containsTrueLower;
+
+            txt = txt.replace("director: ", "");
+
+            //search
+            for (i=0;i<global.movies.length;i++)
+            {
+                directorString = global.movies[i].director;
+                directorStringLower = directorString.toLowerCase();
+
+                containsTrue = directorString.includes(txt);
+                containsTrueLower = directorStringLower.includes(txt);
+
+                if (containsTrue || containsTrueLower)
+                {
+                    moviesFound.push(global.movies[i]);
+                }
+            }
+            renderSearchItems(moviesFound);
+        }
+
+        function searchMoviesByActor(txt)
+        {
+            var moviesFound = [];
+            var actorString, actorStringLower;
+            var containsTrue, containsTrueLower;
+
+            txt = txt.replace("actor: ", "");
+
+            //search
+            for (i=0;i<global.movies.length;i++)
+            {
+                actorString = global.movies[i].actors;
+                actorStringLower = actorString.toLowerCase();
+
+                containsTrue = actorString.includes(txt);
+                containsTrueLower = actorStringLower.includes(txt);
+
+                if (containsTrue || containsTrueLower)
+                {
+                    moviesFound.push(global.movies[i]);
+                }
+            }
+            renderSearchItems(moviesFound);
+        }
+
+        function searchMoviesByYear(txt)
+        {
+            var moviesFound = [];
+            var movieYear;
+            var containsTrue;
+            
+            txt = txt.replace(/\D/g,"");
+            //search
+            for (i=0;i<global.movies.length;i++)
+            {
+                if (txt == global.movies[i].year)
+                {
+                    moviesFound.push(global.movies[i]);
+                }
+            }
+            renderSearchItems(moviesFound);
+        }
+
+        function renderSearchItems(moviesFound)
+        {
+            //reset grid
+            resetGrid();
+            //add search results to grid
+            for (i=0;i<moviesFound.length;i++)
+            {
+                // add to list
+                addBoxToHTML(i, moviesFound[i]);
+            }
+        }
+
+        function resetGrid()
+        {
+            var container = document.getElementById("container");
+            container.innerHTML = "";
         }

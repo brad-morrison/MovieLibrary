@@ -3,6 +3,11 @@
     --tile-height: 300px;
 }
 
+html {
+    background-color: rgb(245, 245, 245);
+    
+}
+
 header {
     background-color: rgb(34, 34, 34);
     height: 60px;
@@ -14,12 +19,22 @@ header {
     width: 100%;
     text-align: center;
     
+    
 }
 
 button {
-    width: 50px;
-    height: 36px;
+    width: 60px;
+    height: 35px;
     vertical-align: middle;
+    border: 0;
+    background-color: rgb(173, 83, 83);
+    color: white;
+    border-radius: 6px;
+}
+
+button:hover {
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+    
 }
 
 .search-field {
@@ -28,6 +43,9 @@ button {
     width: auto;
     min-width: 200px;
     margin-top: 40px;
+    padding-left: 10px;
+
+    
 }
 
 footer {
@@ -57,7 +75,8 @@ body {
 .container {     
     display: grid;
     grid-template-columns: repeat(5, var(--tile-width));
-    grid-template-rows: repeat(126, var(--tile-height));
+    grid-template-rows: repeat(2, var(--tile-height));
+    grid-auto-rows: 300px;
     grid-gap: 15px;
     transition: 1s ease;
     justify-content: center;
@@ -74,6 +93,7 @@ body {
 
 .item:hover{
     margin: -6px;
+    padding: 0;
 }
 
 .item {
@@ -82,7 +102,7 @@ body {
     background-color: #ffffff;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
     transition: .2s ease;
-    padding: 0px;
+    padding: 3px;
     transition: .2s ease;
     border: 1px solid rgb(197, 197, 197);
     margin: 2px;
@@ -137,6 +157,7 @@ img {
     .container{
         grid-template-columns: repeat(4, var(--tile-width));
         justify-content: center;
+        grid-gap: 15px;
     }
 }
 
@@ -144,6 +165,7 @@ img {
     .container{
         grid-template-columns: repeat(3, var(--tile-width));
         justify-content: center;
+        grid-gap: 15px;
     }
 }
 
@@ -151,14 +173,29 @@ img {
     .container{
         grid-template-columns: repeat(2, var(--tile-width));
         justify-content: center;
+        grid-gap: 15px;
     }
 }
 
 @media only screen and (max-width: 454px) {
+    :root {
+        --tile-width: 300px;
+        --tile-height: 480px;
+    }
+    
     .container{
         grid-template-columns: repeat(1, var(--tile-width));
-        justify-content: left;
-        margin-left: 30px;
+        transition: .3s ease;
         grid-gap: 20px;
+        grid-auto-rows: 480px;
+    }
+
+    .item {
+        margin-right: 50%;
+        margin-left: 50%;
+        margin-right: 0;
+        transition: 2s ease;
+        margin-left: 0;
+        transition: 2s ease;
     }
 }

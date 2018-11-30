@@ -22,7 +22,7 @@
             var items = [];
             var item;
             
-            items = document.getElementsByClassName("item");
+            elem = document.getElementsByClassName("item");
             console.log(items.length);
             /*
             for (i=0;i<elem.length;i++)

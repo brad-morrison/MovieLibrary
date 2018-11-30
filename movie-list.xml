@@ -7548,5 +7548,17 @@
 		<rating>8.2</rating>
 		<imdbID>tt5027774</imdbID>
 	</movie>
+	<movie>
+		<title>Hercules</title>
+		<year>1997</year>
+		<rated>U</rated>
+		<genre>Family</genre>
+		<director>Martin McDonagh</director>
+		<actors>Frances McDormand, Caleb Landry Jones, Kerry Condon, Sam Rockwell</actors>
+		<plot>A mother personally challenges the local authorities to solve her daughter's murder when they fail to catch the culprit.</plot>
+		<poster>https://m.media-amazon.com/images/M/MV5BZDcwYjEyNWItMGI1Mi00MjI1LWIyMDEtMTQ4YjhkNjM4NDU3XkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_UX182_CR0,0,182,268_AL_.jpg</poster>
+		<rating>8.2</rating>
+		<imdbID>tt5027774</imdbID>
+	</movie>
 	<movie></movie>
 </movies>

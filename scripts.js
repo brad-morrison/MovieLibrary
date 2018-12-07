@@ -13,27 +13,6 @@
             }
             xhttp.open("GET", "movie-list.xml", true);
             xhttp.send();
-
-            itemClicks();
-        }
-
-        function itemClicks()
-        {
-            var items = [];
-            var item;
-            
-            elem = document.getElementsByClassName("item");
-            console.log(items.length);
-            /*
-            for (i=0;i<elem.length;i++)
-            {
-                elem[i].addEventListener("click", onClickItem);
-            }*/
-        }
-
-        function onClickItem()
-        {
-            console.log("hi");
         }
 
         function createArrayFromXML(xml)
@@ -87,7 +66,7 @@
             for (i=0;i<movies.length;i++)
             {
                 // add to list
-                addBoxToHTML(i, movies[i]);
+               // addBoxToHTML(i, movies[i]);
             }
 
             //add array to global for search
@@ -239,6 +218,54 @@
                 }
             }
             renderSearchItems(moviesFound);
+        }
+
+        function movieGenres()
+        {
+            var movieGenre;
+            var movieGenres = [];
+            var contains;
+
+            for (i=0;i<global.movies.length;i++)
+            {
+                movieGenre = global.movies[i].genre;
+                contains = movieGenres.includes(movieGenre);
+
+                if (!contains)
+                {
+                    movieGenres.push(movieGenre);
+                }
+
+
+                
+            }
+
+            // split strings
+
+            var genreStringsFinal = [];
+
+            for (j=0;j<movieGenres.length;j++)
+            {
+                // get string
+                var genresString = movieGenres[j];
+                
+                //split string
+                var genreStringSplit = genresString.split(", ");
+
+                // add each split string to string array
+                for (k=0;k<genreStringSplit.length;k++)
+                {
+                    genreStringsFinal.push(genreStringSplit[k]);    
+                }
+            }
+
+            // remove duplicate strings
+            let unique = [...new Set(genreStringsFinal)];
+
+            global.genresUnique = [];
+            global.genresUnique = unique;
+
+            console.log(global.genresUnique);
         }
 
         function searchMoviesByDirector(txt)

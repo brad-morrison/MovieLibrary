@@ -66,7 +66,7 @@
             for (i=0;i<movies.length;i++)
             {
                 // add to list
-               // addBoxToHTML(i, movies[i]);
+               // addBoxToHTML(i, movies[i]); // redistribute this!!!!!!
             }
 
             //add array to global for search

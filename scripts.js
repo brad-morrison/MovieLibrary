@@ -74,7 +74,7 @@
         }
 
         function addBoxToHTML(counter, movie)
-        {;
+        {
             // create skeleton item
             var container = document.getElementById("container");
             var lastItem = document.getElementById("item-" + counter-1);
@@ -130,6 +130,57 @@
                 if (movie.title == "Solaris")
                     poster.src = "posters/Solaris.jpg";
             }
+        }
+
+        function addTilesToHTML()
+        {
+            var row = document.getElementById("rows");
+            var start = document.getElementById("start");
+
+
+            // create flexbox //
+            var newItem = document.createElement("div");
+
+            newItem.innerHTML =
+
+            '<div class="row-block">\
+                <h1 class="row-block-header" id="row-block-header">Action</h1>\
+                <div class="flex-scroll-box" id="flex-scroll-box">\
+                    <div id="na"></div>\
+                </div>\
+            </div>'
+
+            row.insertBefore(newItem, start);
+
+            // add tiles //
+
+            for (i=0;i<global.genresUnique.length;i++)
+            {
+                var moviesOfGenre = [];
+                
+                for (j=0;j<global.movies.length;j++)
+                {
+                    if (global.movies[j].genre.includes(global.genresUnique[i]))
+                    {
+                        moviesOfGenre.push(global.movies[j]);
+                    }
+
+                    
+                }
+
+                console.log(global.genresUnique[i] + moviesOfGenre);
+
+                /*var flex = document.getElementById("flex-scroll-box");
+                var insertPoint = document.getElementById("na");
+
+                var newTile = document.createElement("img");
+                newTile.className = "tile";
+                newTile.src = "posters/1.jpg";
+
+                flex.insertBefore(newTile, insertPoint);*/
+            }
+
+
         }
 
         function requestMovie()
@@ -226,6 +277,7 @@
             var movieGenres = [];
             var contains;
 
+            // get raw genre data from all movies //
             for (i=0;i<global.movies.length;i++)
             {
                 movieGenre = global.movies[i].genre;
@@ -235,13 +287,9 @@
                 {
                     movieGenres.push(movieGenre);
                 }
-
-
-                
             }
 
-            // split strings
-
+            // split strings into seperate genres //
             var genreStringsFinal = [];
 
             for (j=0;j<movieGenres.length;j++)
@@ -259,13 +307,14 @@
                 }
             }
 
-            // remove duplicate strings
+            // remove duplicate strings //
             let unique = [...new Set(genreStringsFinal)];
 
-            global.genresUnique = [];
+            // make global var of array //
+            global.genresUnique = []; 
             global.genresUnique = unique;
 
-            console.log(global.genresUnique);
+            addTilesToHTML();
         }
 
         function searchMoviesByDirector(txt)

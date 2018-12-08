@@ -137,47 +137,56 @@
             var row = document.getElementById("rows");
             var start = document.getElementById("start");
 
-
-            // create flexbox //
-            var newItem = document.createElement("div");
-
-            newItem.innerHTML =
-
-            '<div class="row-block">\
-                <h1 class="row-block-header" id="row-block-header">Action</h1>\
-                <div class="flex-scroll-box" id="flex-scroll-box">\
-                    <div id="na"></div>\
-                </div>\
-            </div>'
-
-            row.insertBefore(newItem, start);
-
-            // add tiles //
-
             for (i=0;i<global.genresUnique.length;i++)
             {
-                var moviesOfGenre = [];
+                // create flexbox //
+                var newItem = document.createElement("div");
+
+                newItem.innerHTML =
+
+                '<div class="row-block">\
+                    <h1 class="row-block-header" id="row-block-header">Action</h1>\
+                    <div class="flex-scroll-box" id="flex-scroll-box">\
+                        <div id="na"></div>\
+                    </div>\
+                </div>'
+
+                row.insertBefore(newItem, start);
+
+                // change row header
+                var header = document.getElementById("row-block-header");
+                header.innerHTML = global.genresUnique[i];
+                // reset header id
+                header.id = "";
                 
+                // add tiles //
+                
+                var flex = document.getElementById("flex-scroll-box");
+                var insertPoint = document.getElementById("na");
+
                 for (j=0;j<global.movies.length;j++)
                 {
                     if (global.movies[j].genre.includes(global.genresUnique[i]))
                     {
-                        moviesOfGenre.push(global.movies[j]);
+                        //moviesOfGenre.push(global.movies[j]);
+
+                        
+
+                    var newTile = document.createElement("img");
+                    newTile.className = "tile";
+                    newTile.src = global.movies[j].poster;
+
+
+                    flex.insertBefore(newTile, insertPoint);
+                    
                     }
 
                     
                 }
 
-                console.log(global.genresUnique[i] + moviesOfGenre);
+                flex.id = "";
+                insertPoint.id = "";
 
-                /*var flex = document.getElementById("flex-scroll-box");
-                var insertPoint = document.getElementById("na");
-
-                var newTile = document.createElement("img");
-                newTile.className = "tile";
-                newTile.src = "posters/1.jpg";
-
-                flex.insertBefore(newTile, insertPoint);*/
             }
 
 

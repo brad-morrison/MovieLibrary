@@ -13,6 +13,72 @@ header {
     height: 60px;
     width: 100%;
     position: relative;
+    margin-bottom: 80px;
+}
+
+.nav-bar {
+    width: 100%;
+    background-color: lightgrey;
+}
+
+ul {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.header-button {
+    background-color: #d3d3d3;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    cursor: pointer;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0;
+    font-size: 16px;
+}
+
+.header-button:hover {
+    background-color: rgb(185, 185, 185);
+    border-bottom: black 5px solid;
+    transition: .1s ease;
+    padding-bottom: 10px;
+}
+
+.header-button:active {
+    border-bottom: #ad5353 5px solid;
+    padding-bottom: 10px;
+}
+
+li {
+    list-style: none;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    cursor: pointer;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li:hover {
+    background-color: rgb(185, 185, 185);
+    border-bottom: black 5px solid;
+    transition: .1s ease;
+    padding-bottom: 10px;
+}
+
+li:active {
+    border-bottom: #ad5353 5px solid;
+    padding-bottom: 10px;
 }
 
 .searchbox {
@@ -28,7 +94,7 @@ header {
     float: right;
 }
 
-button {
+.btn-nonheader {
     width: 60px;
     height: 35px;
     vertical-align: middle;
@@ -36,9 +102,12 @@ button {
     background-color: rgb(173, 83, 83);
     color: white;
     border-radius: 6px;
+    cursor: pointer;
+    position: absolute; 
+    top: 0
 }
 
-button:hover {
+.btn-nonheader:hover {
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
     
 }
@@ -56,6 +125,7 @@ button:hover {
 
 footer {
     background-color: rgb(34, 34, 34);
+    bottom:0;
     min-height: 150px;
     width: 100%;
     margin-top: 100px;
@@ -68,9 +138,12 @@ footer {
     padding-top: 20px;
 }
 
+.page-header {
+    padding-top: 10px;
+}
+
 .header-title {
     height:100%;
-    padding-top: 10px;
     font-family: Arial, Helvetica, sans-serif;
 }
 

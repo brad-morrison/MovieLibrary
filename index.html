@@ -6,15 +6,27 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style-m.css" type="text/css">
-    <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
     <header>
         <div class="header-title">
-            <h1>Movies List</h1>
+            <h1 class="page-header">Movies List</h1>
             
         </div>
+        <div class="nav-bar">
+            <ul>
+                <a href="index.html"><button class="header-button">Home</button></a>
+                <a href="genres.html"><button class="header-button">Genre</button></a>
+                <a href="index.html"><button class="header-button">Year</button></a>
+                <a href="index.html"><button class="header-button" style="border-bottom: #ad5353 5px solid; padding-bottom: 10px;">Search</button></a>
+            </ul>
+        </div>
     </header>
+
+    
+
+
     <div class="searchbox">
         <input id="search" class="search-field" type="text" placeholder="Search Movies">
         <button onclick="search()">Search</button>

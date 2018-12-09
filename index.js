@@ -62,7 +62,7 @@
 
             //reverse order so new films are at top
             movies.reverse();
-
+ 
             for (i=0;i<movies.length;i++)
             {
                 // add to list

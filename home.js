@@ -14,14 +14,7 @@
             xhttp.open("GET", "movie-list.xml", true);
             xhttp.send();
             
-            var moviesFound = [];
-
-            //search
-            for (i=0;i<global.movies.length;i++)
-            {
-                moviesFound.push(global.movies[i]);
-            }
-            renderSearchItems(moviesFound);
+            search();
         }
 
         function createArrayFromXML(xml)
@@ -75,7 +68,7 @@
             for (i=0;i<movies.length;i++)
             {
                 // add to list
-               // addBoxToHTML(i, movies[i]); // redistribute this!!!!!!
+               addBoxToHTML(i, movies[i]); // redistribute this!!!!!!
             }
 
             //add array to global for search
